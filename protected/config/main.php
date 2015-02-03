@@ -65,7 +65,13 @@ return [
 //                    'basePath'=> implode(DIRECTORY_SEPARATOR, [DIR_ROOT, 'public', 'js']),
 //                    'basePath'=> '/public',
                     'baseUrl' => '',
-                    'js'      => ['js/node_modules/angular/angular.js'],
+                    'js'      => [
+                        'js/node_modules/angular/angular.js',
+                        'js/node_modules/angular-route/angular-route.js',
+                        'js/controllers.js',
+                        'js/app.js',
+                        'js/phones.json'
+                    ],
                     'css'     => ['css/note.css'],
                     'depends' => ['jquery'],
                 ],

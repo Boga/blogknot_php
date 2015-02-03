@@ -1,0 +1,34 @@
+[
+    {
+        "id": "nexus_s",
+        "name": "Nexus S",
+        "snippet": "Fast just got faster with Nexus S.",
+        "age": 1,
+        "img": "img/dell-streak-7.0.jpg",
+        "img_thumb": "img/dell-streak-7.0_thumb.jpg"
+    },
+    {
+        "id": "motorola_xoom_wifi",
+        "name": "Motorola XOOM™ with Wi-Fi",
+        "snippet": "The Next, Next Generation tablet.",
+        "age": 2,
+        "img": "img/dell-venue.0.jpg",
+        "img_thumb": "img/dell-venue.0_thumb.jpg"
+    },
+    {
+        "id": "motorola_xoom",
+        "name": "MOTOROLA XOOM™",
+        "snippet": "The Next, Next Generation tablet.",
+        "age": 3,
+        "img": "img/droid-2-global-by-motorola.0.jpg",
+        "img_thumb": "img/droid-2-global-by-motorola.0_thumb.jpg"
+    },
+    {
+        "id": "motorola_defy",
+        "name": "Motorola Defy™",
+        "snippet": "The best phone ever",
+        "age": 3,
+        "img": "img/lg-axis.0.jpg",
+        "img_thumb": "img/lg-axis.0_thumb.jpg"
+    }
+]
