@@ -3,10 +3,12 @@
 class NoteController extends AjaxController {
 
     protected function get($id) {
+        # It's responding 404 in case of empty tables; that's non-convenient way.
         $c = new CDbCriteria();
         if ($id) {
             $c->addColumnCondition(['id' => $id]);
         }
+        $c->order = 'id asc';
         $data = Note::model()->findAll($c);
         $this->sendResponse($data ? 200 : 404, $data);
     }

@@ -40,7 +40,7 @@ abstract class AjaxController extends Controller {
             header("Location: $location");
         }
 
-        echo $body ? CJSON::encode($body) : null;
+        echo CJSON::encode($body);
         Yii::app()->end();
     }
 

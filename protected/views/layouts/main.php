@@ -1,12 +1,13 @@
+<?
+    /** @var $content string  */
+?>
 <!doctype html>
-<html lang="en" ng-app="bloknotApp">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 <body>
-
-<div ng-view></div>
-
+    <?php echo $content ?>
 </body>
 </html>
