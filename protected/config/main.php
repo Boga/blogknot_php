@@ -59,33 +59,24 @@ return [
         ],
 
         'clientScript' => [
+            'coreScriptPosition'        => CClientScript::POS_END,
+            'defaultScriptPosition'     => CClientScript::POS_END,
             'defaultScriptFilePosition' => CClientScript::POS_END,
             'packages'                  => [
-//                'notes'   => [
-////                    'basePath'=> implode(DIRECTORY_SEPARATOR, [DIR_ROOT, 'public', 'js']),
-////                    'basePath'=> '/public',
-//                    'baseUrl' => '',
-//                    'js'      => [
-//                        'js/node_modules/angular/angular.js',
-//                        'js/node_modules/angular-route/angular-route.js',
-//                        'js/controllers.js',
-//                        'js/app.js',
-//                        'js/phones.json'
-//                    ],
-//                    'css'     => ['css/note.css'],
-//                    'depends' => ['jquery'],
-//                ],
-                'notes_reactjs'   => [
+                'notes_reactjs' => [
                     'baseUrl' => '',
                     'js'      => [
                         "js/node_modules/react/dist/react.js",
-                        "js/node_modules/react/dist/JSXTransformer.js",
                         "js/node_modules/jquery/dist/jquery.js",
                         "js/node_modules/showdown/src/showdown.js",
                         "js/app/app.js",
+                        "js/node_modules/bootstrap/dist/js/bootstrap.js",
                     ],
-                    'css'     => ['css/note.css'],
-//                    'depends' => [''],
+                    'css'     => [
+                        "css/note.css",
+                        "js/node_modules/bootstrap/dist/css/bootstrap.css",
+                        "js/node_modules/font-awesome/css/font-awesome.css",
+                    ],
                 ],
             ],
         ],

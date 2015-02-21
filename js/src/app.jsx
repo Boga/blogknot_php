@@ -2,15 +2,16 @@ var converter = new Showdown.converter();
 
 var Comment = React.createClass({
     render: function () {
-        console.log(this.props);
-        var title = converter.makeHtml(this.props.title);
-        var body = converter.makeHtml(this.props.body);
+        var title = this.props.title ? converter.makeHtml(this.props.title) : '';
+        var body = this.props.body ? converter.makeHtml(this.props.body) : '';
         return (
-            <div className="comment">
+            <div className="comment thumbnail">
                 <h2 className="commentAuthor">
                     {this.props.id}
                 </h2>
-                <span dangerouslySetInnerHTML={{__html: this.props.date + '&nbsp;' + title}} />
+                <span dangerouslySetInnerHTML={{__html:
+                    '<i class="fa fa-calendar"></i>&NonBreakingSpace;' + this.props.date + '&nbsp;' + title}}
+                />
                 <p dangerouslySetInnerHTML={{__html: body}} />
             </div>
         );
@@ -26,7 +27,7 @@ var CommentList = React.createClass({
             );
         });
         return (
-            <div className="commentList">
+            <div className="commentList col-md-3">
                 {commentNodes}
             </div>
         );
@@ -40,7 +41,6 @@ var CommentForm = React.createClass({
         if (!title) {
             return;
         }
-        console.log(title);
         // TODO: send request to the server
         this.props.onCommentSubmit({title: title});
         this.refs.title.getDOMNode().value = '';
@@ -119,3 +119,5 @@ var initNotesApp = function () {
         document.getElementById('content')
     );
 };
+
+initNotesApp();
