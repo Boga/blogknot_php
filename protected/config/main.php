@@ -69,8 +69,10 @@ return [
                         "js/node_modules/react/dist/react.js",
                         "js/node_modules/jquery/dist/jquery.js",
                         "js/node_modules/showdown/src/showdown.js",
-                        "js/app/app.js",
                         "js/node_modules/bootstrap/dist/js/bootstrap.js",
+                        "js/app/tags.js",
+                        "js/app/notes.js",
+                        "js/app/app.js",
                     ],
                     'css'     => [
                         "css/note.css",

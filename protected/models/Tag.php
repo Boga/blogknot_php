@@ -4,19 +4,17 @@
  * [db]
  * @property integer $id
  * @property string  $title
- * @property string  $date
- * @property string  $body
  *
  * [relations]
- * @property Tag $tags
+ * @property Note $notes
  *
  */
-class Note extends CActiveRecord {
+class Tag extends CActiveRecord {
     /**
      * @return string the associated database table name
      */
     public function tableName() {
-        return 'bloknot.note';
+        return 'bloknot.tag';
     }
 
     /**
@@ -31,30 +29,14 @@ class Note extends CActiveRecord {
         ];
     }
 
-    /**
-     * @return array relational rules.
-     */
     public function relations() {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return [
-            'tags' => [self::MANY_MANY, 'Tag', 'bloknot.tagnote(tag_id, note_id)'],
+            'notes' => [self::MANY_MANY, 'Note', 'bloknot.tagnote(tag_id, note_id)'],
         ];
     }
 
-
-    /**
-     * Retrieves a list of models based on the current search/filter conditions.
-     *
-     * Typical usecase:
-     * - Initialize the model fields with values from filter form.
-     * - Execute this method to get CActiveDataProvider instance which will filter
-     * models according to data in model fields.
-     * - Pass data provider to CGridView, CListView or any similar widget.
-     *
-     * @return CActiveDataProvider the data provider that can return the models
-     * based on the search/filter conditions.
-     */
     public function search() {
         $criteria = new CDbCriteria;
 
@@ -65,12 +47,6 @@ class Note extends CActiveRecord {
         ]);
     }
 
-    /**
-     * Returns the static model of the specified AR class.
-     * Please note that you should have this exact method in all your CActiveRecord descendants!
-     * @param string $className active record class name.
-     * @return User the static model class
-     */
     public static function model($className = __CLASS__) {
         return parent::model($className);
     }
