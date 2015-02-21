@@ -1,8 +1,8 @@
 var Note = React.createClass({
     render: function () {
         return (
-            <li role="presentation">
-                <a href={this.props.id} class="btn btn-default" role="button">
+            <li className="list-group-item">
+                <a href={'#/note/' + this.props.id} class="btn btn-default" role="button">
                     {this.props.date}&nbsp;{this.props.title}
                 </a>
             </li>
@@ -40,8 +40,8 @@ var NotesList = React.createClass({
             );
         });
         return (
-            <div className="noteList col-md-3 panel panel-default">
-                <ul className="nav nav-pills nav-stacked">
+            <div className="noteList">
+                <ul class="list-group">
                     {noteNodes}
                 </ul>
             </div>
