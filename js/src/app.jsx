@@ -2,8 +2,15 @@ var NotesBox = React.createClass({
     render: function () {
         return (
             <div className="notesBox">
-                <TagList url={this.props.tags}  pollInterval={2000} />
-                <NotesList url={this.props.notes}  pollInterval={2000} />
+                <div className="col-md-2">
+                    <TagList url={this.props.tags}  pollInterval={2000} />
+                </div>
+                <div className="col-md-3">
+                    <NotesList url={this.props.notes}  pollInterval={2000} />
+                </div>
+                <div className="col-md-7">
+                    Note body
+                </div>
             </div>
         );
     }

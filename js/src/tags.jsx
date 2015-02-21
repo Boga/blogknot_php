@@ -1,8 +1,8 @@
 var Tag = React.createClass({
     render: function () {
         return (
-            <li role="presentation">
-                <a href={this.props.id} class="btn btn-default" role="button">
+            <li className="list-group-item">
+                <a href={'#/tag/' + this.props.id} class="btn btn-default" role="button">
                     {this.props.title}
                 </a>
             </li>
@@ -40,8 +40,8 @@ var TagList = React.createClass({
             );
         });
         return (
-            <div className="tagList col-md-2 panel panel-default">
-                <ul className="nav nav-pills nav-stacked">
+            <div className="tagList">
+                <ul class="list-group">
                     {tagNodes}
                 </ul>
             </div>
