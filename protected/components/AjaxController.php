@@ -5,7 +5,7 @@
  */
 abstract class AjaxController extends Controller {
 
-    protected function get($id) {
+    protected function get($id, $details) {
     }
 
     protected function post($id) {
@@ -20,9 +20,9 @@ abstract class AjaxController extends Controller {
 
     }
 
-    public function actionAjax($id = null) {
+    public function actionAjax($id = null, $details = null) {
         $action = Yii::app()->request->requestType;
-        $this->$action($id);
+        $this->$action($id, $details);
     }
 
     protected function sendResponse($status = 200, $body = '', $location = null, $contentType = 'application/json') {

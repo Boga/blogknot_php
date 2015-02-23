@@ -1,10 +1,10 @@
-var Note = React.createClass({
+var NoteItem = React.createClass({
     render: function () {
         return (
-            <li className="list-group-item">
-                <a href={'#/note/' + this.props.id} class="btn btn-default" role="button">
-                    {this.props.date}&nbsp;{this.props.title}
-                </a>
+            <li className={"list-group-item " + this.props.style} onClick={this.props.onClick}>
+                <img className="media-object" src="http://placehold.it/64x64" alt="Media for note"/>
+                    <h4>{this.props.title}</h4>
+                    {this.props.date}
             </li>
         );
     }
@@ -17,7 +17,7 @@ var NotesList = React.createClass({
             url: this.props.url,
             dataType: 'json',
             success: function (data) {
-                this.setState({data: data});
+                this.setState({notes: data});
             }.bind(this),
             error: function (xhr, status, err) {
                 console.error(this.props.url, status, err.toString());
@@ -25,7 +25,14 @@ var NotesList = React.createClass({
         });
     },
     getInitialState: function () {
-        return {data: []};
+        return {
+            focused: 0,
+            notes: []
+        };
+
+    },
+    clicked: function (index) {
+        this.setState({focused: index});
     },
     componentDidMount: function () {
         this.loadFromServer();
@@ -33,15 +40,21 @@ var NotesList = React.createClass({
     },
 
     render: function () {
-        var noteNodes = this.state.data.map(function (note) {
+        var self = this;
+        var noteNodes = this.state.notes.map(function (note, index) {
+            var style = '';
+            if(self.state.focused == index){
+                style = 'active';
+            }
             return (
-                <Note id={note.id} title={note.title}> date={note.date}>
-                </Note>
+                <NoteItem id={note.id} title={note.title} date={note.date} style={style}
+                    onClick={self.clicked.bind(self, index)}>
+                </NoteItem>
             );
         });
         return (
             <div className="noteList">
-                <ul class="list-group">
+                <ul className="list-group">
                     {noteNodes}
                 </ul>
             </div>

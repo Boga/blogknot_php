@@ -2,14 +2,21 @@
 
 class TagController extends AjaxController {
 
-    protected function get($id) {
+    protected function get($id, $details) {
         # It's responding 404 in case of empty tables; that's non-convenient way.
-        $c = new CDbCriteria();
         if ($id) {
-            $c->addColumnCondition(['id' => $id]);
+            $tag = Tag::model()->findByPk($id);
+            switch ($details) {
+                case 'notes':
+                    $data = $tag->notes;
+                    break;
+                default:
+                    $data = $tag;
+            }
         }
-        $c->order = 'id asc';
-        $data = Tag::model()->findAll($c);
+        else {
+            $data = Tag::model()->findAll(['order' => 'id asc']);
+        }
         $this->sendResponse($data ? 200 : 404, $data);
     }
 

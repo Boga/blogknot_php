@@ -9,5 +9,11 @@
 </head>
 <body>
     <?php echo $content ?>
+
+<!-- TODO: replace with JS -->
+    <script type="text/jsx" src="js/src/tags.jsx"></script>
+    <script type="text/jsx" src="js/src/notes.jsx"></script>
+    <script type="text/jsx" src="js/src/app.jsx"></script>
+
 </body>
 </html>

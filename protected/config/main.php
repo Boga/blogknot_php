@@ -40,12 +40,13 @@ return [
             'urlFormat'      => 'path',
             'showScriptName' => false,
             'rules'          => [
-                'api/<controller:\w+>'                   => '<controller>/ajax',
-                'api/<controller:\w+>/<id:\d+>'          => '<controller>/ajax',
+                'api/<controller:\w+>'                        => '<controller>/ajax',
+                'api/<controller:\w+>/<id:\d+>'               => '<controller>/ajax',
+                'api/<controller:\w+>/<id:\d+>/<details:\w+>' => '<controller>/ajax',
 
-                '<controller:\w+>/<id:\d+>'              => '<controller>/view',
-                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-                '<controller:\w+>/<action:\w+>'          => '<controller>/<action>',
+                '<controller:\w+>/<id:\d+>'                   => '<controller>/view',
+                '<controller:\w+>/<action:\w+>/<id:\d+>'      => '<controller>/<action>',
+                '<controller:\w+>/<action:\w+>'               => '<controller>/<action>',
 
             ],
         ],
@@ -67,12 +68,13 @@ return [
                     'baseUrl' => '',
                     'js'      => [
                         "js/node_modules/react/dist/react.js",
+                        "js/node_modules/react/dist/JSXTransformer.js",
                         "js/node_modules/jquery/dist/jquery.js",
                         "js/node_modules/showdown/src/showdown.js",
                         "js/node_modules/bootstrap/dist/js/bootstrap.js",
-                        "js/app/tags.js",
-                        "js/app/notes.js",
-                        "js/app/app.js",
+//                        "js/app/tags.js",
+//                        "js/app/notes.js",
+//                        "js/app/app.js",
                     ],
                     'css'     => [
                         "css/note.css",
